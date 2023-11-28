@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Eliminación de Pago</title>
+</head>
+<body>
+    <h1>Confirmar Eliminación de Pago</h1>
+    <p>¿Estás seguro de que deseas eliminar este pago?</p>
+    <p>Pago ID: {{ pago.id }}</p>
+    <p>Descripción: {{ pago.descripcion }}</p>
+    <!-- Otros detalles del pago que desees mostrar -->
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar Eliminar Pago</button>
+        <a href="{% url 'index_pagos' %}">Cancelar</a>
+    </form>
+</body>
+</html>

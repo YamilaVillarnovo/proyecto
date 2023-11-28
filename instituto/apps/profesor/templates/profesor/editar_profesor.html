@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Profesor</title>
+</head>
+<body>
+    <h1>Editar Profesor</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar cambios</button>
+        <a href="{% url 'index_profesor' %}">Cancelar</a>
+    </form>
+</body>
+</html>

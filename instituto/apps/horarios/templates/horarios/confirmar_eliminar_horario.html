@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Eliminación de Horario</title>
+</head>
+<body>
+    <h1>Confirmar Eliminación de Horario</h1>
+    <p>¿Estás seguro de que deseas eliminar este horario?</p>
+    <p>Horario ID: {{ horario.id }}</p>
+    <!-- Otros detalles del horario que desees mostrar -->
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar Eliminar Horario</button>
+        <a href="{% url 'index_horarios' %}">Cancelar</a>
+    </form>
+</body>
+</html>

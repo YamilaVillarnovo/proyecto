@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Inicio</title>
+    <!-- Enlace a Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com"crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=Lexend+Deca:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="icono-gimnasio">GESTIÓN DE RUTINA</h1>
+    <ul>
+        {% for rutina in rutinas %}
+            <li>
+                Rutina ID: {{ rutina.id }}
+                <a href="{% url 'editar_rutina' rutina.pk %}">Editar</a>
+                <a href="{% url 'confirmar_eliminar_rutina' rutina.pk %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'cargar_rutina' %}">CARGAR RUTINA</a></a>
+</body>
+</html>

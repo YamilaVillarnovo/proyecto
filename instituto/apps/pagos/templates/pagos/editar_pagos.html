@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Pagos</title>
+</head>
+<body>
+    <h1>Editar Pagos</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar cambios</button>
+        <a href="{% url 'index_pagos' %}">Cancelar</a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Eliminación de Rutina</title>
+</head>
+<body>
+    <h1>Confirmar Eliminación de Rutina</h1>
+    <p>¿Estás seguro de que deseas eliminar esta rutina?</p>
+    <p>Rutina ID: {{ rutina.id }}</p>
+    <!-- Otros detalles de la rutina que desees mostrar -->
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar Eliminar Rutina</button>
+        <a href="{% url 'index_rutina' %}">Cancelar</a>
+    </form>
+</body>
+</html>

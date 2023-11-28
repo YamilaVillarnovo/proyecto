@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Profesores</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=Lexend+Deca:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="icono-gimnasio">GESTIÓN DE PROFESORES</h1>
+    <ul>
+        {% for profesor in profesores %}
+            <li>
+                Profesor ID: {{ profesor.id }}
+                <!-- Otros detalles del profesor -->
+                <form action="{% url 'editar_profesor' pk=profesor.id %}" method="get" style="display: inline;">
+                    <button type="submit">Editar</button>
+                </form>
+                <form action="{% url 'confirmar_eliminar_profesor' pk=profesor.id %}" method="get" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="delete">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'cargar_profesor' %}">Agregar Nuevo Profesor</a>
+</body>
+</html>

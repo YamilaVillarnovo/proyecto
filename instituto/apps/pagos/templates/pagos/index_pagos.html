@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Pagos</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=Lexend+Deca:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="icono-gimnasio">GESTIÓN DE PAGOS</h1>
+    <ul>
+        {% for pago in pagos %}
+            <li>
+                Pago ID: {{ pago.id }}
+                <!-- Otros detalles del pago -->
+                <form action="{% url 'editar_pagos' pk=pago.id %}" method="get" style="display: inline;">
+                    <button type="submit">Editar</button>
+                </form>
+                <form action="{% url 'confirmar_eliminar_pagos' pk=pago.id %}" method="get" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="delete">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'carga_pagos' %}">Agregar Nuevo Pago</a>
+</body>
+</html>

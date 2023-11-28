@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Eliminación de Profesor</title>
+</head>
+<body>
+    <h1>Confirmar Eliminación de Profesor</h1>
+    <p>¿Estás seguro de que deseas eliminar este profesor?</p>
+    <p>Profesor ID: {{ profesor.id }}</p>
+    <p>Nombre: {{ profesor.nombre }}</p>
+    <!-- Otros detalles del profesor que desees mostrar -->
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar Eliminar Profesor</button>
+        <a href="{% url 'index_profesor' %}">Cancelar</a>
+    </form>
+</body>
+</html>

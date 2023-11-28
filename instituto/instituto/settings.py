@@ -31,7 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 LOCAL_APPS =[
 	'apps.alumno',
+    'apps.horarios',
+    'apps.pagos',
 	'apps.profesor',
+    'apps.reservas',
+    'apps.rutina',
 ]
 
 DJANGO_APPS = [
@@ -121,9 +125,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+# settings.py
+
+import os
+
+# ...
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# ...
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'apps/alumno/static'),  # Ruta a la carpeta 'static'
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

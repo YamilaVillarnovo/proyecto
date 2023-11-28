@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Eliminación de Reserva</title>
+</head>
+<body>
+    <h1>Confirmar Eliminación de Reserva</h1>
+    <p>¿Estás seguro de que deseas eliminar esta reserva?</p>
+    <p>Reserva ID: {{ reserva.id }}</p>
+    <!-- Otros detalles de la reserva que desees mostrar -->
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar Eliminar Reserva</button>
+        <a href="{% url 'index_reserva' %}">Cancelar</a>
+    </form>
+</body>
+</html>

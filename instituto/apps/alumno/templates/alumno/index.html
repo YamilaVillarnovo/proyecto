@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Inicio</title>
+    <!-- Enlace a Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com"crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&family=Lexend+Deca:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="icono-gimnasio">GESTIÓN <br> DE <br> ALUMNOS</h1>
+    <ul>
+        {% for alumno in alumnos %}
+            <li>{{ alumno.nombre }}
+                <a href="{% url 'editar_alumno' alumno.pk %}">Editar</a>
+                <a href="{% url 'eliminar_alumno' alumno.pk %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'cargar_alumno' %}">CARGAR <br> ALUMNO</a></a>
+</body>
+</html>
